@@ -59,18 +59,6 @@ export const GroupElement = styled.div`
   }
 `;
 
-export const TextBox = styled.div`
-`;
-
-export const ImageBox = styled.div`
-   display:block;
-`;
-
-export const Paragraph = styled.p`
-    margin: 0;
-    line-height: 1.88;
-`;
-
 export const DefaultButton = styled.button`
     display: block;
     padding: 0;
@@ -94,4 +82,35 @@ export const Button = DefaultButton.extend`
    ${(props) => props.primary && css`
 
   `}
+  ${(props) => props.withIcon && css`
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+  `}
+  ${(props) => props.widthFluid && css`
+    width: 100%;
+  `}
 `;
+
+export const ImageBox = styled.div`
+   display:block;
+`;
+
+export const Icon = styled.span`
+   display:flex;
+   ${(props) => props.iconRight && css`
+    margin-left: 8px;
+  `}
+   ${(props) => props.iconLeft && css`
+    margin-right: 8px;
+  `}
+`;
+
+export const TextBox = styled.div`
+
+`;
+export const Paragraph = styled.p`
+    margin: 0;
+    line-height: 1.88;
+`;
+
