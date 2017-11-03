@@ -14,18 +14,24 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Header from '../../components/Header';
-import HomeView from 'containers/HomeView/HomeView';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import { MainContainerStyles } from './styles/styles';
+
+import NotFoundPage from '../NotFoundPage/Loadable';
+import Header from '../../components/Header/Header';
+import RegistrationView from '../RegistrationView/RegistrationView';
+import HomeView from '../HomeView/HomeView';
 
 export default function App() {
   return (
     <div>
       <Header />
-      <Switch>
-        <Route exact path="/" component={HomeView} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <MainContainerStyles>
+        <Switch>
+          <Route exact path="/" component={HomeView} />
+          <Route exact path="/registration" component={RegistrationView} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </MainContainerStyles>
     </div>
   );
 }

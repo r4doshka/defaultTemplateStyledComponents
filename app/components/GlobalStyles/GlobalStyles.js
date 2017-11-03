@@ -1,16 +1,19 @@
 import styled, { css } from 'styled-components';
 
-export const GroupStyled = styled.div`
+export const Div = styled.div`
     display: flex;
     ${(props) => props.widthFluid && css`
       width: 100%;
       flex: 0 0 100%;
     `}
+     ${(props) => props.heightFluid && css`
+      height: 100%;
+    `}
      ${(props) => props.btnGroup && css`
        ${Button}{
-        margin-bottom: 6px;
+       margin-right: 12px;
         &:last-child{
-          margin-bottom: 0;
+          margin-right: 0;
         }
       }
     `}
@@ -27,6 +30,9 @@ export const GroupStyled = styled.div`
    `}
     ${(props) => props.flexwrap && css`
       flex-wrap: wrap;
+    `}
+    ${(props) => props.directionColumn && css`
+      flex-direction: column;
     `}
     ${(props) => props.alignCenter && css`
       align-items: center;
@@ -49,6 +55,9 @@ export const GroupStyled = styled.div`
     ${(props) => props.formGroup && css `
        position: relative;
     `}
+     ${(props) => props.indentBottomBig && css `
+       margin-bottom: 48px;
+    `}
 `;
 
 export const GroupElement = styled.div`
@@ -61,13 +70,12 @@ export const GroupElement = styled.div`
 
 export const DefaultButton = styled.button`
     display: block;
-    padding: 0;
+    padding: 7px 19px 10px 18px;
+    border-radius: 4px;
     box-shadow: none;
-    border: none;
-    background: transparent;
-    font-size: 14px;
-    line-height: 1;
-    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 400;
     &:hover,
     &:focus,
     &:active,
@@ -79,9 +87,48 @@ export const DefaultButton = styled.button`
 `;
 
 export const Button = DefaultButton.extend`
-   ${(props) => props.primary && css`
-
+  ${(props) => props.primary && css`
+    border: solid 1px #d1d7db;
+    background-color: #ffffff;
+    box-shadow: 0 2px 25px 0 rgba(0, 0, 0, 0);
+    transition: box-shadow 0.2s;
+    &:hover{
+      color: #48bbff;
+      box-shadow: 0 0 4px 0 rgba(72, 187, 255, 0.8);
+      border: solid 1px #48bbff;
+    }
+    &:active:focus,
+    &:focus,
+    &:active{
+      box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+      border: solid 1px #48bbff;
+      color: #48bbff;
+    }
+  
   `}
+  
+   ${(props) => props.secondary && css`
+      color: #ffffff;
+      font-weight: 300;
+      border: solid 1px transparent;
+      box-shadow: 0 0 4px 0 rgba(72, 187, 255, 0);
+      background-color: #48bbff;
+       &:hover{
+         color: #ffffff;
+         box-shadow: 0 0 4px 0 rgba(72, 187, 255, 0.8);
+         border: solid 1px transparent;
+         background-color: #48bbff;
+       }
+        &:active:focus,
+        &:focus,
+        &:active{
+          color: #ffffff;
+          box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+          border: solid 1px transparent;
+          background-color: #48bbff;
+      }
+  `}
+  
   ${(props) => props.withIcon && css`
       white-space: nowrap;
       display: flex;
@@ -113,4 +160,19 @@ export const Paragraph = styled.p`
     margin: 0;
     line-height: 1.88;
 `;
+
+export const Heading = styled.div`
+    font-size: 24px;
+    line-height: 1.25;
+    font-weight: 400;
+    text-align: center;
+    color: #667784;
+    ${(props) => props.subTitle && css`
+      font-size: 16px;
+    `}
+     ${(props) => props.indentBottom && css`
+      margin-bottom: 8px;
+    `}
+`;
+
 

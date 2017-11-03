@@ -1,25 +1,24 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import {} from './../GlobalStyles/GlobalStyles';
-import { MainContainer } from './styles/styles';
+import { MainContent } from './styles/styles';
+
 
 class Main extends React.PureComponent {
 
   render() {
     return (
-    <MainContainer>
-      <Grid>
-        <Row>
-          <Col md={12}>
-
-            da
-
-          </Col>
-        </Row>
-      </Grid>
-    </MainContainer>
+      <MainContent>
+        <Grid>
+          <Row>
+            <Col md={12}>
+              testas
+            </Col>
+          </Row>
+        </Grid>
+      </MainContent>
     );
   }
 }
 
-export default Main
+export default Main;
